@@ -29,14 +29,15 @@ $(function () {
   })
   //监听注册表单的提交事件
   $('#form_reg').on('submit', function (e) {
+    const username = $('#yonghuming').val()
+    const password = $('#mima').val()
     e.preventDefault()
     $.post('http://www.liulongbin.top:3007/api/reguser',
-      {username: $('#yonghuming').val(), password: $('#mima').val()},
+      {username, password},
       function (res) {
         if (res.status !== 0) {
           return layer.msg(res.message, {icon: 6})
         }
-
         layer.msg('注册成功，请登录', {icon: 6})
         //模拟人的点击行为
         $('#link_login').click()
@@ -61,6 +62,7 @@ $(function () {
         localStorage.setItem('token', res.token)
         // console.log(res.token)
         //跳转到后台主页
+
         location.href = 'http://localhost:63342/bignews/index.html?_ijt=mn72te20qdosgh3g8rr4noodp6'
       }
     })
