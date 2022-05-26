@@ -32,7 +32,7 @@ $(function () {
     const username = $('#yonghuming').val()
     const password = $('#mima').val()
     e.preventDefault()
-    $.post('http://www.liulongbin.top:3007/api/reguser',
+    $.post('/api/reguser',
       {username, password},
       function (res) {
         if (res.status !== 0) {
@@ -63,7 +63,7 @@ $(function () {
         // console.log(res.token)
         //跳转到后台主页
 
-        location.href = 'http://localhost:63342/bignews/index.html?_ijt=mn72te20qdosgh3g8rr4noodp6'
+        location.href = '/bignews/index.html?_ijt=mn72te20qdosgh3g8rr4noodp6'
       }
     })
   })
